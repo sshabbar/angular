@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html data-ng-app>
+<head>
+	<title>mobiles</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+</head>
+<body>
+  <div data-ng-controller="SimpleController">
+	Name:
+	<input type="text" data-ng-model="name">
+	<br>
+	{{name}}
+	<ul>
+		<li data-ng-repeat="cust in customers |filter:name |orderBy:cust.name">cust.name --- cust.city</li>
+	</ul>
+  </div>
+
+  <script>
+	function SimpleController($scope){
+	$scope.customers=[
+	{name:'John Smith',city:'Phoenix'}
+	{name:'John Doe',city:'New York'}
+	];
+	}
+  </script>
+</body>
+</html>
